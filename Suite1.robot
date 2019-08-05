@@ -31,7 +31,6 @@ Login
 T1
     [Tags]    sanity
    log   Login TestCase
-   log   %{USERNAME}   
    Open Browser   ${url}   chrome
    Login
   
