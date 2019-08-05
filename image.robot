@@ -1,7 +1,7 @@
 #Script to check whether image is displayed, enabled and image link is clickable
 
 *** settings ***
-Library   selenium2library
+Library   Selenium2Library
 
 *** variables ***
 ${url}   https://www.seleniumhq.org/
