@@ -9,7 +9,7 @@ ${url}   https://www.seleniumhq.org/
 
 *** Test Cases ***
 Image
-   Open Browser   ${url}   chrome
+   Open Browser   ${url}
    Element Should Be Visible    xpath=//*[@id="choice"]/tbody/tr/td[1]/center/a[1]/img
    Element Should Be Enabled    xpath=//*[@id="choice"]/tbody/tr/td[1]/center/a[1]/img
    Click Image    xpath=//*[@id="choice"]/tbody/tr/td[1]/center/a[1]/img
