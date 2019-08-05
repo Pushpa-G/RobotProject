@@ -32,8 +32,8 @@ Login
 T1
     [Tags]    sanity
    log   Login TestCase
-   Set Environment Variable  webdriver.chrome.driver  ./chromedriver  
-   Create Webdriver    Chrome    executable_path=./chromedriver
+   Set Environment Variable  webdriver.chrome.driver  chromedriver 
+   Create Webdriver    Chrome    executable_path=chromedriver
    Go To   ${url}   
    Login
   
