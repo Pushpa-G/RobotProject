@@ -1,56 +1,22 @@
-*** Settings ***
-Library    SeleniumLibrary    
-Library    ExcelLibrary 
+
    
+*** Settings ***
+Library    SeleniumLibrary
+
+
 *** Keywords ***
-
- add     
-    [Arguments]    ${num1}    ${num2}
-    ${num1}    Convert To Integer     ${num1}
-    ${num2}    Convert To Integer     ${num2}
-    ${ret}       Evaluate    ${num1} + ${num2}    
-    [Return]    ${ret} 
-
-upperFor
-    [Documentation]    Loops over values from 0 to 9
-    [Arguments]    ${upper}
-    FOR    ${index}    IN RANGE   ${upper}
-        Log    ${index}
-    END
-
-inner loop
-     [Arguments]    ${i}     ${col}     
-     ${sum}     Convert To Integer    0    
-    :FOR    ${j}    IN RANGE   ${col}
-        ${data}     Read Cell Data By Coordinates    addData  ${j}  ${i}
-        ${data}    Convert To Integer    ${data}    
-       #Log To Console        ${data}  
-        ${sum}         Evaluate     ${sum} + ${data}
-        
-                
-    END    
-       Log To Console  sum is ${sum}    
-fromToFor
-    [Documentation]    Loops over values from 1 to 10
-    [Arguments]   ${lower}     ${upper}
-    FOR    ${index}    IN RANGE    ${lower}    ${upper}
-        Log    ${index}
-    END
-
-
-stepFor
-    [Documentation]    Loops over values 5, 15, and 25
-    [Arguments]    ${lower}     ${upper}    ${step}
-    FOR    ${index}    IN RANGE    ${lower}     ${upper}    ${step}
-        Log    ${index}
-    END
-
-
-floatFor
-    [Documentation]    Loops over values 3.14, 4.34, and 5.54
-     [Arguments]    ${lower}     ${upper}    ${step}
-    FOR    ${index}    IN RANGE    ${lower}     ${upper}    ${step}
-        Log    ${index}
-    END
-    
+LoginWithParameter 
+      [Arguments]  @{user}
+      Input Text   id=username   @{user}[0]
+      Input Password   id=password   @{user}[1]
+      Click Button   xpath=/html/body/div/div[1]/div[1]/form/table/tbody/tr[3]/td[2]/input[2]
+      Sleep    3  
+      Click Element     id = zb__NEW_MENU_title
+      Input Text    id=zv__COMPOSE-1_to_control    k.sushma@globaledgesoft.com
+      Input Text    id=zv__COMPOSE-1_subject_control     Hey
+      Select Frame    xpath=//*[@id="ZmHtmlEditor1_body_ifr"]
+      Input Text    xpath = //*[@id="tinymce"]    "Hi Sushma How are you"
+      Unselect Frame  
+      Click Element    id=zb__COMPOSE-1__SEND_title    
+      Sleep    10   
     

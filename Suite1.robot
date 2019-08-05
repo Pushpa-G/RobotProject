@@ -1,50 +1,53 @@
-   # Author    		: 	PUSHPA G
-   # Date		    :	05/04/2019
-   # Description	:	Basic operations on number using for loop and data driven concept
+   # Author	    	: 	PUSHPA G
+   # Date	    	:	03/04/2019
+   # Description	:	Suite Setup and Teardown , Test Setup and Teardown , Tags concept in robot framework
  
 
-
 *** Settings ***
-Library    SeleniumLibrary 
-Library    Selenium2Library
-Library    ExcelLibrary    
-    
+Library    SeleniumLibrary   
 Resource    Keywords.robot 
 
-*** Test Cases ***
-add
-    log     addtition of tow number 
-    ${ret}     add     5    6
-    log     ${ret}
-    
-readdata
-    Open Excel    adddata.xls
-     ${data}     Get Row Values    addData    0      
-     # Log To Console    ${data}    
-    # Log    ${data}  
-    
-    ${row}    Get Row Count    addData
-    ${col}    Get Column Count    addData
-    ${i}      Convert To Integer     0
-    Log To Console    ${row}
-    Log To Console    ${col}        
-    :FOR     ${i}    IN RANGE    ${row} 
-         inner loop     ${i}     ${col}       
-    END        
-        
-    
 
-      
-Only upper limit
-    upperFor     10
-        
-Start and end
-    fromToFor    1    10
+
+Suite Setup    Log    I am inside Suite setup
+Suite Teardown    Log    I am inside Suite Teardown
+Test Setup    Log    I am inside Test setup         
+Test Teardown    Log    I am inside Test Teardown
+       
+
+*** Variable ***
+${url}   https://mail.globaledgesoft.com/
+@{user}  g.pushpa@globaledgesoft.com   p@ssw0rd
+
+*** Keywords ***   
+Login
+   Input Text   id=username   @{user}[0]
+   Input Password   id=password  @{user}[1]
+   Click Button   xpath=/html/body/div/div[1]/div[1]/form/table/tbody/tr[3]/td[2]/input[2]
+   Sleep    2 
     
-    
-Also step given
-    stepFor     1    30    5
-    stepFor    8    -18    -10
-    
-Float parameters
-    floatFor    1.2    30.5    7.5 
+*** Test Cases ***
+
+T1
+    [Tags]    sanity
+   log   Login TestCase
+   log   %{USERNAME}   
+   Open Browser   ${url}   chrome
+   Login
+  
+       
+   Close Browser
+   
+   
+   
+T2
+    [Tags]    regression
+    log     Passing Parameter to Login Keyword
+    Open Browser   ${url}   chrome
+    LoginWithParameter     @{user}
+    Close Browser   
+   
+
+ 
+   
+   
