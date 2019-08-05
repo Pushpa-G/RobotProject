@@ -6,6 +6,7 @@
 *** Settings ***
 Library    SeleniumLibrary   
 Resource    Keywords.robot 
+Library           OperatingSystem
 
 
 
