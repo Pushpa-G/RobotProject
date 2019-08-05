@@ -31,7 +31,7 @@ Login
 T1
     [Tags]    sanity
    log   Login TestCase
-   Open Browser   ${url}   chrome
+   Open Browser   ${url}   ff
    Login
   
        
