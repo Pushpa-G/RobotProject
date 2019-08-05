@@ -18,7 +18,7 @@ add
     log     ${ret}
     
 readdata
-    Open Excel    /home/pushpa/Desktop/Testing/adddata.xls
+    Open Excel    adddata.xls
      ${data}     Get Row Values    addData    0      
      # Log To Console    ${data}    
     # Log    ${data}  
