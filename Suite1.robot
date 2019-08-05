@@ -31,6 +31,7 @@ Login
 T1
     [Tags]    sanity
    log   Login TestCase
+   Set Environment Variable  webdriver.chrome.driver  ./chromedriver  
    Open Browser   ${url}   chrome
    Login
   
