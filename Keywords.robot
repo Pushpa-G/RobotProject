@@ -1,4 +1,3 @@
-#initail
    
 *** Settings ***
 Library    SeleniumLibrary
