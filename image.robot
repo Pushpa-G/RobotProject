@@ -1,4 +1,4 @@
-#Script to check whether image is displayed, enabled and image link is clickable
+#Script for check whether image is displayed, enabled and image link is clickable
 
 *** settings ***
 Library   SeleniumLibrary
